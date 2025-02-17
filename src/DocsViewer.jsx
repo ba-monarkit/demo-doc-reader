@@ -55,7 +55,7 @@ const DocsViewer = ({ url, fileType }) => {
       // For PDFs and other file types, fetch the data
       const response = await fetch(url, {
         method: 'GET',
-        mode: 'cors',
+        mode: 'no-cors',
         headers: {
           'Accept': '*/*'
         }
