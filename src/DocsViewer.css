@@ -1,0 +1,265 @@
+.docs-viewer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upload-zone {
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-zone:hover, .upload-zone.drag-over {
+  border-color: #0056b3;
+  background: #e9ecef;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.upload-hint {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.preview-container {
+  width: 100%;
+  min-height: 500px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdf-canvas {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.preview-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  position: sticky;
+  bottom: 20px;
+}
+
+.page-button {
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.page-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.page-button:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.page-info {
+  color: #495057;
+  font-size: 0.9em;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  padding: 20px;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+/* DOCX styles */
+.docx-container {
+  width: 100%;
+  background: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.docx-content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Override docx-preview default styles */
+.docx-content .document-container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.docx-content .document {
+  padding: 20px !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.docx-content table {
+  margin: 10px 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.docx-content td,
+.docx-content th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.docx-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Excel Viewer Styles */
+.excel-viewer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.excel-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.excel-tab {
+  padding: 8px 16px;
+  background: #e9ecef;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  color: #495057;
+}
+
+.excel-tab:hover {
+  background: #dee2e6;
+}
+
+.excel-tab.active {
+  background: #007bff;
+  color: white;
+}
+
+.excel-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+  background: white;
+  border-radius: 0 0 8px 8px;
+}
+
+.excel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: white;
+}
+
+.excel-table th,
+.excel-table td {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  min-width: 100px;
+}
+
+.excel-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.excel-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.excel-table tr:hover {
+  background: #e9ecef;
+}
+
+.excel-empty {
+  padding: 20px;
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+}
